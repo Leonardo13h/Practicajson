@@ -26,7 +26,7 @@ function App() {
                     <Route path="/laptop" element={<Laptop />} />
                     <Route path="/movil" element={<Movil />} />
                     <Route path="/tecno" element={<Tecno />} />
-                    <Route path="/categorias" element={<Categorias />} />
+                    <Route path="/categorias/:cat" element={<Categorias />} />
                     <Route path="/contactos" element={<Contactos />} />
                     <Route path="/motocycles" element={<Motocycles />} />
                     <Route path="/comida" element={<Comida />} />

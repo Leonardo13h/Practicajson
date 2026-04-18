@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import FiltroCategoria from "./FiltroCategoria";
 
 const Header = () => {
   return (
@@ -53,24 +54,8 @@ const Header = () => {
                   Categoria
                 </a>
                 <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Another action
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Something else here
-                    </a>
-                  </li>
+                 
+                 <FiltroCategoria/>
                   
                 </ul>
               </li>
