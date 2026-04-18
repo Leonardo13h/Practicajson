@@ -12,6 +12,7 @@ import Categorias from "./pages/Categorias";
 import Inicio from "./pages/Inicio";
 import Motocycles from "./pages/Motocycles";
 import Comida from "./pages/Comida";
+import Detalle from "./pages/Detalle";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -26,11 +27,12 @@ function App() {
                     <Route path="/laptop" element={<Laptop />} />
                     <Route path="/movil" element={<Movil />} />
                     <Route path="/tecno" element={<Tecno />} />
-                    <Route path="/categorias/:cat" element={<Categorias />} />
+                    <Route path="/categorias/:cat/:nombre" element={<Categorias />} />
                     <Route path="/contactos" element={<Contactos />} />
                     <Route path="/motocycles" element={<Motocycles />} />
                     <Route path="/comida" element={<Comida />} />
-                    <Route path="/error404" element={<Error404 />} />
+                    <Route path="*" element={<Error404 />} />
+                    <Route path="/detalle/:id/:title" element={<Detalle />} />
 
         </Routes>
 

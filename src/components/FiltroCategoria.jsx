@@ -51,7 +51,7 @@ const FiltroCategoria = () => { //logica
   return ( //renderizado
     <>
     {datos.map((item) => (
-         <li><Link to={`/categorias/${item.slug}`} class="dropdown-item" href="#">{item.name}</Link></li>
+         <li><Link to={`/categorias/${item.slug}/${item.name}`} class="dropdown-item" href="#">{item.name}</Link></li>
           
         ))}
     </>

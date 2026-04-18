@@ -15,7 +15,7 @@ const Comida = () => {
       }
       const data = await response.json();
       console.log(data);
-      setDatos(data.products);
+      setDatos(data.products);//cuando no tiene nombre de arreglo se borra PRODUCT
       setLoading(false);
     } catch (err) {
       setError(err.message);
