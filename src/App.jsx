@@ -1,8 +1,10 @@
 import { useState } from "react";
 import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { CarritoProvider } from "./context/CarritoContext";
+
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Error404 from "./pages/Error404";
 import Laptop from "./pages/Laptop";
 import Movil from "./pages/Movil";
@@ -18,27 +20,28 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <BrowserRouter>
-      <div className="app">
-        <Header />
-        <Routes>
-         <Route path="/" element={<Inicio />} />
-                    <Route path="/inicio" element={<Inicio />} />
-                    <Route path="/laptop" element={<Laptop />} />
-                    <Route path="/movil" element={<Movil />} />
-                    <Route path="/tecno" element={<Tecno />} />
-                    <Route path="/categorias/:cat/:nombre" element={<Categorias />} />
-                    <Route path="/contactos" element={<Contactos />} />
-                    <Route path="/motocycles" element={<Motocycles />} />
-                    <Route path="/comida" element={<Comida />} />
-                    <Route path="*" element={<Error404 />} />
-                    <Route path="/detalle/:id/:title" element={<Detalle />} />
+    <CarritoProvider>
+      <BrowserRouter>
+        <div className="app">
+          <Header />
+          <Routes>
+            <Route path="/" element={<Inicio />} />
+            <Route path="/inicio" element={<Inicio />} />
+            <Route path="/laptop" element={<Laptop />} />
+            <Route path="/movil" element={<Movil />} />
+            <Route path="/tecno" element={<Tecno />} />
+            <Route path="/categorias/:cat/:nombre" element={<Categorias />} />
+            <Route path="/contactos" element={<Contactos />} />
+            <Route path="/motocycles" element={<Motocycles />} />
+            <Route path="/comida" element={<Comida />} />
+            <Route path="*" element={<Error404 />} />
+            <Route path="/detalle/:id/:title" element={<Detalle />} />
+          </Routes>
 
-        </Routes>
-
-        <Footer />
-      </div>
-    </BrowserRouter>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </CarritoProvider>
   );
 }
 

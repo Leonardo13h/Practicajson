@@ -1,13 +1,23 @@
 import React from 'react'
+import { useCarrito } from "../context/CarritoContext";
 import { Link } from 'react-router-dom'
 
 const CartProductos = ({item}) => {
+
+  const { agregarAlCarrito, restarUno, carrito } = useCarrito();
+   const enCarrito = carrito.find(producto => producto.id === item.id);
+
   return (
     <div className="col-md-3 mb-5">
             <div className="card h-100" key={item.id}>
 
             
             <div className="card-header">
+               {enCarrito && (
+                        <span className="position-absolute top-0 end-0 badge rounded-pill text-bg-warning fs-6 m-2">
+                            {enCarrito.cantidad}
+                        </span>
+                    )}
               <img src={item.thumbnail} alt="" className="img-fluid" />
             </div>
             <div className="card-body text-center">
@@ -16,8 +26,24 @@ const CartProductos = ({item}) => {
             </div>
             <div className="card-footer text-center">
                 <button type="button" class="btn btn-outline-info mx-3" data-bs-toggle="modal" data-bs-target={`#${item.id}`}>Modal</button>
-                <Link to={`/detalle/${item.id}/${item.title}`} type="button" class="btn btn-outline-danger">Detalle</Link>
+                <Link to={`/detalle/${item.id}/${item.title}`} type="button" class="btn btn-outline-warning">Detalle</Link>
+                <div className="mt-2 pt-2 btn-outline-info border-top">
+                        <button 
+                        className="btn btn-success btn-sm py-2 " 
+                         onClick={() => agregarAlCarrito(item)}>
+                            Agregar al carrito
+                        </button>
+                         {enCarrito && (
+                        <button 
+                        className="btn btn-danger btn-sm ms-2 py-2" 
+                         onClick={() => restarUno(item)}>
+                            Eliminar del Carrito
+                        </button> 
+                         )}
+                    </div>
+                         
             </div>
+              
           </div>
 
 
